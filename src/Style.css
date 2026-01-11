@@ -559,6 +559,20 @@ img{
   overflow: hidden;
 }
 /* slick carousel */
+
+.pcarousel .slick-slide {
+  padding: 0 10px;
+}
+
+.pcarousel .slick-track {
+  display: flex !important;
+  align-items: center;
+}
+
+.product-card {
+  text-align: center;
+}
+
 .pcarousel .slick-slide {
     transform: scale(0.9);
     transition: all 0.3s ease;
@@ -579,9 +593,7 @@ img{
     z-index: 1;
 }
 
-.pcarousel .slick-slide {
-    margin: 0 10px;
-}
+
 .product-card h6{
     position: relative;
     z-index: 5;

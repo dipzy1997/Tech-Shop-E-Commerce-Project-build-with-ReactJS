@@ -1,10 +1,47 @@
 import React from 'react'
+import Slider from "react-slick";
 import "../Style.css"
 import "../Responsive.css"
+import { featureContent } from '../data/featureCarouselData'
+import { FaIndianRupeeSign } from "react-icons/fa6";
+
 
 
 
 export default function FeatureCarousel() {
+    const featureSlider = {
+        centerMode: true,
+        centerPadding: '0px',
+        variableWidth: true,
+        // slidesToShow: 5,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: false,
+        dots: true,
+        pauseOnHover: false,
+        pauseOnFocus: false,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+    }
   return (
     <div>
         {/* <!-- featured product carousel start --> */}
@@ -15,65 +52,26 @@ export default function FeatureCarousel() {
             <h3>featured products</h3>
         </div>
 
+
+        <Slider className="pcarousel" {...featureSlider}>
+            {featureContent.map((f)=>(
+                <div key={f.id}>
+                    <div class="product-card">
+                        <h6>{f.title}</h6>
+                        <div class="product-card-img">
+                            <img src={f.image} alt={f.title}/>
+                        </div>
+                        <p><FaIndianRupeeSign/>{f.discountPrice}<span><FaIndianRupeeSign/>{f.actualPrice}</span></p>
+                    </div>
+                </div>
+            ))}
+
+        </Slider>
+
+
+
         {/* <!-- carousel --> */}
-    <div class="pcarousel">
-      
-        {/* <!-- 1st item --> */}
-        <div>
-            <div class="product-card">
-                <h6>boAt Airdopes 203</h6>
-                <div class="product-card-img">
-                    <img src="./images/products/boat203-1.png" alt=""/>
-                </div>
-                <p><i class="fa-solid fa-indian-rupee-sign"></i>1074<span><i class="fa-solid fa-indian-rupee-sign"></i>3999</span></p>
-            </div>
-        </div>
-
-        {/* <!-- 2nd item --> */}
-         <div>
-            <div class="product-card">
-                <h6>boAt Rockerz 518</h6>
-                <div class="product-card-img">
-                    <img src="./images/products/boat518-1.png" alt=""/>
-                </div>
-                <p><i class="fa-solid fa-indian-rupee-sign"></i>1,299<span><i class="fa-solid fa-indian-rupee-sign"></i>3,990</span></p>
-            </div>
-        </div>
-
-        {/* <!-- 3rd item --> */}
-         <div>
-            <div class="product-card">
-                <h6>JBL Tune 760NC</h6>
-                <div class="product-card-img">
-                    <img src="./images/products/jbl760nc-1.png" alt=""/>
-                </div>
-                <p><i class="fa-solid fa-indian-rupee-sign"></i>5,999<span><i class="fa-solid fa-indian-rupee-sign"></i>7,999</span></p>
-            </div>
-        </div>
-
-        {/* <!-- 4th item --> */}
-         <div>
-            <div class="product-card">
-                <h6>JBL Endurance Run Sports</h6>
-                <div class="product-card-img">
-                    <img src="./images/products/jbl-endu-1.png" alt=""/>
-                </div>
-                <p><i class="fa-solid fa-indian-rupee-sign"></i>999<span><i class="fa-solid fa-indian-rupee-sign"></i>1,599</span></p>
-            </div>
-        </div>
-
-        {/* <!-- 5th item --> */}
-         <div>
-            <div class="product-card">
-                <h6>boAt Rockerz 255</h6>
-                <div class="product-card-img">
-                    <img src="./images/products/boat255r-1.png" alt=""/>
-                </div>
-                <p><i class="fa-solid fa-indian-rupee-sign"></i>899<span><i class="fa-solid fa-indian-rupee-sign"></i>2,990</span></p>
-            </div>
-        </div>
     
-    </div>
 
     </div>
 </section>
