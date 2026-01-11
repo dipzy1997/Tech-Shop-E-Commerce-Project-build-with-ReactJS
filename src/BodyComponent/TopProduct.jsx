@@ -29,8 +29,8 @@ export default function TopProduct() {
         </div>
 
         <div className="category-btns d-flex justify-content-between align-items-center">
-            <button className={activeCategory === "all"? "redbtn-active": ""} onclick={()=> setActiveCategory("all")}>all</button>
-            <button className={activeCategory === "headphones"? "red-btn-active" : ""} onClick={()=> setActiveCategory("headphones")}>headphones</button>
+            <button className={activeCategory === "all"? "redbtn-active" : ""} onClick={()=> setActiveCategory("all")}>all</button>
+            <button className={activeCategory === "headphones"? "redbtn-active" : ""} onClick={()=> setActiveCategory("headphones")}>headphones</button>
             <button className={activeCategory === "earbuds"? "redbtn-active" : ""} onClick={()=> setActiveCategory("earbuds")}>earbuds</button>
             <button className={activeCategory === "earphones"? "redbtn-active": ""} onClick={()=> setActiveCategory("earphones")}>earphones</button>
             <button className={activeCategory === "neckbands"? "redbtn-active": ""} onClick={()=> setActiveCategory("neckbands")}>neckbands</button>
