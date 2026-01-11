@@ -3,6 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 import Layout from './Layout'
 import Home from './Home'
 import "../Responsive.css"
+import AllProduct from '../InnerPageComponent/AllProduct'
 
 
 export default function Navigation() {
@@ -11,10 +12,11 @@ export default function Navigation() {
     
         <Routes>
             <Route element={<Layout/>}>
-
               <Route path="/" element={<Home/>} />
 
             </Route>
+            <Route path="/allProducts" element={<AllProduct/>} />
+
         </Routes>
     </div>
   )

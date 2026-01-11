@@ -44,7 +44,7 @@ export default function FeatureCarousel() {
     }
   return (
     <div>
-        {/* <!-- featured product carousel start --> */}
+       
 
 <section class="featured-product-sec">
     <div class="container">
@@ -69,15 +69,11 @@ export default function FeatureCarousel() {
         </Slider>
 
 
-
-        {/* <!-- carousel --> */}
-    
-
     </div>
 </section>
 
 
-{/* <!-- featured product carousel end --> */}
+
     </div>
   )
 }
