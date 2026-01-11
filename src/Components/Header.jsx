@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import { FaMagnifyingGlass, FaXmark} from "react-icons/fa6";
 import { FaShoppingCart} from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
+import "../Responsive.css"
 
 export default function Header() {
   return (

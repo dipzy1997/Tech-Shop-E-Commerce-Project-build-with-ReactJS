@@ -1,4 +1,7 @@
 import React from 'react'
+import "../Responsive.css"
+
+
 
 export default function Cart() {
   return (

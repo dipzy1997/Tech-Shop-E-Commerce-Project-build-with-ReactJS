@@ -1,5 +1,6 @@
 import React from 'react'
 import "../BodyComponent/Advantage"
+import "../Responsive.css"
 
 export default function ProductDetails() {
   return (

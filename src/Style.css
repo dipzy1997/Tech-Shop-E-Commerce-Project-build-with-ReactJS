@@ -485,33 +485,20 @@ img{
     position: relative;
     z-index: 99;
 }
+.banner-img img{
+    object-fit: contain;
+}
+.swiper-pagination-bullet-active {
+    background: var(--red) !important;
+}
+.swiper-wrapper{
+    height: 600px !important;
+}
 .banner-slide{
     width: 95%;
      margin: 0 auto !important;
 }
-.banner .owl-nav{
-    display: none !important;
-}
-.banner-slide .owl-dots {
-  text-align: center;
-  margin-top: 15px;
-}
 
-/* Default dot */
-.banner-slide .owl-dot span {
-  width: 12px;
-  height: 12px;
-  margin: 5px;
-  background: var(--discount-price-text-color);
-  display: block;
-  border-radius: 50%;
-  transition: all 0.3s;
-}
-
-/* Active dot */
-.banner-slide .owl-dot.active span {
-  background: #ff0000; /* red */
-}
 
 /* featured product section start */
 

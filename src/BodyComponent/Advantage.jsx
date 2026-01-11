@@ -3,6 +3,8 @@ import "../Style.css"
 import { FaTruckFast, FaCreditCard } from "react-icons/fa6";
 import { FaShieldAlt, FaTag } from "react-icons/fa";
 import { servicesData } from "../data/servicesData"
+import "../Responsive.css"
+
 
  function Advantage() {
   return (

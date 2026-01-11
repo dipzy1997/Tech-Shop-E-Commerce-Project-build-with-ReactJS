@@ -4,6 +4,7 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaTwitter, FaInstagram,  FaLinkedinIn } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { footMenu, footSocial } from '../data/footerData';
+import "../Responsive.css"
 
 export default function Footer() {
   return (
