@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "../Style.css"
 import {Link} from 'react-router-dom'
 import { FaMagnifyingGlass, FaXmark} from "react-icons/fa6";
@@ -47,6 +47,49 @@ const closeAllAuthBox = () => {
   setShowSignUpBox(false);
 };
 
+const searchRef = useRef(null);
+const debounceRef = useRef(null);
+
+const [suggestions, setSuggestions] = useState([]);
+const [showSearch, setShowSearch] = useState(false);
+
+
+const handleSearch = ()=>{
+  const value = searchRef.current.value;
+ 
+  if(debounceRef.current){
+    clearTimeout(debounceRef.current)
+  }
+
+  debounceRef.current = setTimeout(()=>{
+
+    if(value.trim() === ""){
+    setSuggestions([])
+    return;
+    }
+    const filter = state.products.filter(p=> p.title.toLowerCase().includes(value.toLowerCase()));
+    setSuggestions(filter);
+
+  },500)
+}
+
+//click on suggestion that goes to input
+
+const handleSuggestionClick = (title)=>{
+  searchRef.current.value = title;
+  setSuggestions([])
+}
+
+const openSearch = ()=>{
+  setShowSearch(true);
+  setTimeout(() => {
+    searchRef.current?.focus();
+  }, 100);
+}
+
+const closeSearch = ()=>{
+  setShowSearch(false)
+}
 
 
 
@@ -69,16 +112,20 @@ const closeAllAuthBox = () => {
         
         <li className="nav-item search-box">
           
-            <div className="search-overlay"></div> 
+            <div className={`search-overlay ${showSearch? "active": ""}`} onClick={closeSearch}></div> 
 
-              <Link><FaMagnifyingGlass/></Link>
+              <Link onClick={openSearch}><FaMagnifyingGlass/></Link>
               <p className="seatch-text">search</p>
 
-                <div className="search-container">
-                    <input type="text" placeholder="Search for products..." id="navSearch" autocomplete="off"/>
-                    <span className="clear-search-btn"><FaXmark /></span>
-                    <ul className="suggestions">
-                        {/* <!-- dynamically rendering product name --> */}
+                <div className={`search-container ${showSearch? "active" : ""}`}>
+                    <input type="text" placeholder="Search for products..." id="navSearch" autocomplete="off" ref={searchRef} onKeyUp={handleSearch}/>
+                    <span className="clear-search-btn" onClick={closeSearch}><FaXmark /></span>
+                    <ul className={`suggestions ${suggestions.length ? "active":""}`}>
+                        {suggestions.map((item)=>(
+                          <li key={item.id} onClick={()=>handleSuggestionClick(item.title)}>
+                              {item.title}
+                          </li>
+                        ))}
                     </ul>
                 </div>
         </li>
