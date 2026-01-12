@@ -29,7 +29,7 @@ img{
     --discount-price-text-color:#6c757d;
     --roboto-font:'Roboto', sans-serif;
 }
-.red-btn {
+.red-btn, .green-btn {
     padding: 10px 20px;
     background-color: var(--red);
     color: #fff;
@@ -45,6 +45,12 @@ img{
 }
 .red-btn:hover{
     background-color: #c00505;
+}
+.green-btn{
+    background-color: green;
+}
+.green-btn:hover{
+    background-color: rgb(2, 170, 2);
 }
 /* back to top button start */
 #backToTop{
@@ -104,6 +110,9 @@ img{
     font-size: 25px;
     font-family:'Poppins', sans-serif;
 }
+.navbar-brand:hover{
+    color: var(--grey-text) !important;
+}
 .navbar-nav .nav-item{
     margin-left: 25px;
 }
@@ -116,7 +125,7 @@ img{
     position: relative;
 }
 .cart-icon span {
-    font-size: 14px;
+    font-size: 12px;
     position: absolute;
     top: 0px;
     right: -10px;
@@ -128,7 +137,7 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
+    
 }
 
 /* search */
@@ -884,13 +893,9 @@ footer{
     background-color: var(--black);
     padding: 70px 0;
     position: relative;
-    display: none;
-    opacity: 0;
-}
-.prod-added-to-cart.active{
     display: block;
-    opacity: 1;
 }
+
 .added-prod-box{
     background-color: var(--light-black);
     padding: 20px;
@@ -945,12 +950,12 @@ footer{
 .inc-dec-btn h6{
     margin: 0 12px;
     color:var(--red);
-    font-size:12px;
+    font-size:16px;
 }
 .decrease, .increase{
     border: none;
     outline: none;
-    padding: 6px 7px;
+    padding: 4px 6px;
     background-color: rgb(26, 0, 0);
     display: flex;
     align-items: center;
@@ -963,10 +968,10 @@ footer{
     cursor: pointer;
     border: 1px solid var(--discount-price-text-color);
 }
-.decrease:hover i, .increase:hover i{
+.decrease:hover svg, .increase:hover svg{
     color: var(--red) !important;
 }
-.decrease i, .increase i{
+.decrease svg, .increase svg{
     color: var(--grey-text) !important;
     font-size: 11px !important;
 }
@@ -976,11 +981,11 @@ footer{
     background-color: transparent;
     transition: 0.3s ease-in-out;
 }
-.delete-btn:hover i{
+.delete-btn:hover svg{
     color: var(--red) !important;
 }
-.delete-btn i{
-    font-size: 14px !important;
+.delete-btn svg{
+    font-size: 18px !important;
     color: var(--grey-text) !important;
     transition: 0.3s ease-in-out;
 }

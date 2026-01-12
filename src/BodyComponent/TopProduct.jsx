@@ -4,6 +4,7 @@ import "../Responsive.css"
 import productsData from '../data/productsData'
 import Card from '../Components/Card';
 import { useNavigate } from 'react-router-dom';
+import { useCartContext } from '../contextApi/CartProvider';
 
 
 
@@ -11,10 +12,13 @@ import { useNavigate } from 'react-router-dom';
 export default function TopProduct() {
 
     const navigate = useNavigate();
+    const {state, dispatch} = useCartContext();
+    const products = state.products;
+   
 
     const [activeCategory, setActiveCategory] = useState("all");
 
-    const filteredProducts = activeCategory === "all"? productsData : productsData.filter(p=> p.category.toLowerCase() === activeCategory);
+    const filteredProducts = activeCategory === "all"? products : products.filter(p=> p.category.toLowerCase() === activeCategory);
     
 
 
@@ -41,10 +45,10 @@ export default function TopProduct() {
                 <div className="row" id="topProductsRow">
                     {filteredProducts.slice(0, 11).map((product)=> <Card product={product} key={product.id}/> )}
                      
-                    <div class="col-lg-3 col-md-4">
+                    <div className="col-lg-3 col-md-4">
                 
-                        <div class="browse-box" onClick={()=> navigate("/allProducts")}>
-                            <p>browse all products <span><i class="fa-solid fa-arrow-right"></i></span></p>
+                        <div className="browse-box" onClick={()=> navigate("/allProducts")}>
+                            <p>browse all products <span><i className="fa-solid fa-arrow-right"></i></span></p>
                         </div>
                 
                     </div>

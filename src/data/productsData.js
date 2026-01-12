@@ -97,12 +97,6 @@ import sonyxb4004 from "../assets/images/products/sonyxb400-4.png";
 
 
 
-
-
-
-
-
-
 const productsData = [
     {
         id: 1,
