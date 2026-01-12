@@ -88,6 +88,7 @@ img{
     position: relative;
     z-index: 99;
 }
+
 .navbar{
     background-color: var(--black);
     color:var(--grey-text);
@@ -123,6 +124,7 @@ img{
 
 .cart-icon{
     position: relative;
+    transition: 0.3s ease-in-out;
 }
 .cart-icon span {
     font-size: 12px;
@@ -139,42 +141,45 @@ img{
     align-items: center;
     
 }
+.cart-text , .seatch-text{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    border: 1px solid var(--discount-price-text-color);
+    color: var(--grey-text);
+    padding: 2px 8px;
+    font-size: 14px;
+    text-transform: capitalize;
+    border-radius: 2px;
+    display: none;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    font-family: var(--roboto-font);
+}
+.cart-icon:hover .cart-text{
+    display: block;
+    opacity: 1;
+}
 
 /* search */
 .search-box {
   position: relative;
   display: flex;
   align-items: center;
+  transition: 0.3s ease-in-out;
 }
 .search-box .search-icon {
   position: relative;
   cursor: pointer;
 }
+.search-box:hover .seatch-text{
+    display: inline-table;
+    opacity: 1;
+}
+
 
 /* Tooltip text on hover */
-.search-box .search-icon::after , .cart-icon a i::after{
-  content: attr(data-tooltip);
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: transparent;
-  color: #fff;
-  padding: 7px 10px;
-  border-radius: 4px;
-  font-size: 12px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
-  z-index: 9999;
-  text-transform: capitalize;
-  font-size: 12px;
-  font-family: var(--roboto-font);
-  font-weight: 400;
-  border: 1px solid var(--discount-price-text-color);
 
-}
 .cart-icon a i::after{
     top: 50px;
 }

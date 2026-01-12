@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../Style.css"
 import {Link} from 'react-router-dom'
 import { FaMagnifyingGlass, FaXmark} from "react-icons/fa6";
@@ -10,6 +10,28 @@ import { useCartContext } from '../contextApi/CartProvider';
 export default function Header() {
   const {state, dispatch} = useCartContext();
   const cart = state.cart;
+
+  useEffect(()=>{
+    const header = document.querySelector(".tech-nav");
+
+    const handleScroll = ()=>{
+      if(window.scrollY > 100){
+        header.classList.add("fixed")
+      }else{
+         header.classList.remove("fixed")
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return ()=> window.removeEventListener("scroll", handleScroll)
+
+  },[])
+
+
+
+
+
   return (
     <div>
 
@@ -17,7 +39,7 @@ export default function Header() {
 
 <header className="tech-nav">
 
-<nav className="navbar navbar-expand-lg">
+<nav className="navbar navbar-expand-lg ">
   <div className="container">
     <Link className="navbar-brand" to="/">Tech-Shop</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,8 +49,12 @@ export default function Header() {
       <ul className="navbar-nav ms-auto d-flex align-items-center">
         
         <li className="nav-item search-box">
+          
             <div className="search-overlay"></div> 
+
               <Link><FaMagnifyingGlass/></Link>
+              <p className="seatch-text">search</p>
+
                 <div className="search-container">
                     <input type="text" placeholder="Search for products..." id="navSearch" autocomplete="off"/>
                     <span className="clear-search-btn"><FaXmark /></span>
@@ -39,6 +65,7 @@ export default function Header() {
         </li>
 
         <li className="nav-item cart-icon">
+          <p className="cart-text">Cart</p>
           <Link className="nav-link" to="/cart"><FaShoppingCart/></Link>
           {cart.length !== 0 && <span>{cart.length}</span>}
         </li>
