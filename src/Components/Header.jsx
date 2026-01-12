@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../Style.css"
 import {Link} from 'react-router-dom'
 import { FaMagnifyingGlass, FaXmark} from "react-icons/fa6";
@@ -27,6 +27,25 @@ export default function Header() {
     return ()=> window.removeEventListener("scroll", handleScroll)
 
   },[])
+
+  const [showUserPrimaryBox, setShowUserPrimaryBox] = useState(false);
+  const [showLoginBox, setShowLogInBox] = useState(false);
+  const [showSignUpBox, setShowSignUpBox] = useState(false);
+
+const openLogin = () => {
+  setShowLogInBox(true);
+  setShowSignUpBox(false);
+};
+
+const openSignup = () => {
+  setShowSignUpBox(true);
+  setShowLogInBox(false);
+};
+
+const closeAllAuthBox = () => {
+  setShowLogInBox(false);
+  setShowSignUpBox(false);
+};
 
 
 
@@ -70,13 +89,13 @@ export default function Header() {
           {cart.length !== 0 && <span>{cart.length}</span>}
         </li>
 
-        <li className="nav-item user-icon">
+        <li className="nav-item user-icon" onClick={()=> setShowUserPrimaryBox(prev => !prev)}>
           <Link className="nav-link" to="#"><FiUser/></Link>
 
-          <div className="user-primary-box">
+          <div className={`user-primary-box ${showUserPrimaryBox ? "active" : ""}`}>
             <h5>hello</h5>
             <h6>Access account and manage orders</h6>
-            <button>Login / Signup</button>
+            <button onClick={openLogin}>Login / Signup</button>
             <p>please login</p>
           </div>
 
@@ -89,14 +108,14 @@ export default function Header() {
 
 </header>
 
-<div className="log-overlay"></div>
+<div className={`log-overlay ${(showLoginBox || showSignUpBox) ? "active" : ""} `} onClick={closeAllAuthBox}></div>
 
 {/* <!-- login box --> */}
 
-    <div className="login-box">
-        <span className="login-clear-btn"><FaXmark /></span>
+    <div className={`login-box ${showLoginBox? "active" : ""}`}>
+        <span className="login-clear-btn" onClick={closeAllAuthBox}><FaXmark /></span>
         <h4>Login</h4>
-        <h5>new to tech-shop ? <span className="createAccount">create an account</span></h5>
+        <h5>new to tech-shop ? <span className="createAccount" onClick={openSignup}>create an account</span></h5>
         <input type="email" name="" id="log-email" placeholder="email"/>
         <input type="password" name="" id="log-pass" placeholder="password"/>
         <button className="red-btn">login</button>
@@ -114,10 +133,10 @@ export default function Header() {
 
     {/* <!-- sign up box --> */}
 
-    <div className="login-box signup-box">
-        <span className="login-clear-btn sign-clear-btn"><FaXmark /></span>
+    <div className={`login-box signup-box ${showSignUpBox ? "active": ""}`}>
+        <span className="login-clear-btn sign-clear-btn" onClick={closeAllAuthBox}><FaXmark /></span>
         <h4>signup</h4>
-        <h5>already have an account ? <span className="createAccount signup-login">login</span></h5>
+        <h5>already have an account ? <span className="createAccount signup-login" onClick={openLogin}>login</span></h5>
         <input type="text" id="sign-user" placeholder="username"/>
         <input type="email" name="" id="sign-email" placeholder="email"/>
         <input type="password" name="" id="sign-pass" placeholder="password"/>
