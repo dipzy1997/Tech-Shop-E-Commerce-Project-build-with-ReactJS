@@ -1,8 +1,15 @@
 import React from 'react'
 import Advantage from '../BodyComponent/Advantage'
 import "../Responsive.css"
+import { useCartContext } from '../contextApi/CartProvider'
+import Card from '../Components/Card';
+
 
 export default function AllProduct() {
+
+const {state, dispatch} = useCartContext();
+const products = state.products;
+
   return (
     <div>
         {/* <!-- all product section start --> */}
@@ -56,7 +63,7 @@ export default function AllProduct() {
                 </div>
                 <div class="col-md-10">
                     <div class="row" id="all-products-container">
-                      {/* <!-- rendering all product dynamically --> */}
+                      {products.map((product)=> <Card product={product} key={product.id} /> )}
 
                     </div>
                 </div>
