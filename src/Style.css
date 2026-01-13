@@ -1368,9 +1368,7 @@ footer{
     background-color: var(--black);
     padding: 100px 0;
 }
-.filter-clear-btn{
-    display: none;
-}
+
 
 .all-sort-sec h5, .all-filter-sec h5{
     color: var(--grey-text);
@@ -1438,3 +1436,17 @@ footer{
 
 
 /* all product page end */
+
+ul .active-filter,
+.active-filter {
+  color: red;
+  font-weight: 400;
+}
+
+.active-filter input {
+  accent-color: red; /* checkbox color */
+}
+.all-filter-sec ul li label input:hover {
+    color:var(--red) !important;
+    cursor: pointer !important;
+}

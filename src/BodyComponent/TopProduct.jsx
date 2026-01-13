@@ -18,7 +18,7 @@ export default function TopProduct() {
 
     const [activeCategory, setActiveCategory] = useState("all");
 
-    const filteredProducts = activeCategory === "all"? products : products.filter(p=> p.category.toLowerCase() === activeCategory);
+    const categoryProducts = activeCategory === "all"? products : products.filter(p=> p.category.toLowerCase() === activeCategory);
     
 
 
@@ -43,7 +43,7 @@ export default function TopProduct() {
         {/* <!-- top product list start --> */}
             <div className="top-product-container">
                 <div className="row" id="topProductsRow">
-                    {filteredProducts.slice(0, 11).map((product)=> <Card product={product} key={product.id}/> )}
+                    {categoryProducts.slice(0, 11).map((product)=> <Card product={product} key={product.id}/> )}
                      
                     <div className="col-lg-3 col-md-4">
                 

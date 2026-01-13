@@ -2,9 +2,18 @@ const storedCart = JSON.parse(localStorage.getItem("cart"));
 
 export const initialState = {
     products : [],
+    filteredProducts : [],
     cart :storedCart? storedCart : [],
     loading: true,
     error : null,
+
+    filters :{
+        brands : [],
+        categories : [],
+        sort : "",
+        price: 15000
+    },
+    maxprice: 0,
 
 }
 
@@ -15,6 +24,7 @@ export const reducerFn = (state, action)=>{
             return{
                 ...state,
                 products: action.payload,
+                filteredProducts: action.payload,
                 loading: false,
                 
             }
@@ -57,6 +67,56 @@ export const reducerFn = (state, action)=>{
             return{
                 ...state,
                 cart: []
+            }
+
+        case "set_brands_filter":
+            return{
+                ...state,
+                filters : {...state.filters, brands : action.payload}
+            }
+
+        case "set_category_filter":
+            return{
+                ...state,
+                filters: {...state.filters, categories: action.payload}
+            }
+
+        case "set_price_filter":
+            return{
+                ...state,
+                filters: {...state.filters, price: action.payload}
+            }
+
+        case "set_sort_filter":
+            return {
+                ...state,
+                filters: {...state.filters, sort: action.payload}
+        };
+
+        case "clear_filter":
+            return{
+                ...state,
+                filters: {
+                    brands: [],
+                    categories: [],
+                    price: state.maxprice,
+                    sort: ""
+                },
+                filteredProducts : state.products
+            }
+
+        case "apply_filters":
+            return{
+                ...state,
+                filteredProducts : action.payload
+            }
+
+        case "set_max_price":
+            return{
+                ...state,
+                maxprice: action.payload,
+                filters: {...state.filters, price: action.payload}
+
             }
 
         default : return state;
