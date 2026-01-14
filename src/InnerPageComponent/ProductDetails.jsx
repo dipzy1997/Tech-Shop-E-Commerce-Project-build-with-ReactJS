@@ -3,8 +3,9 @@ import "../Responsive.css"
 import { useParams } from 'react-router-dom'
 import { useCartContext } from '../contextApi/CartProvider';
 import { FaIndianRupeeSign } from "react-icons/fa6";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaCheck, FaUser} from "react-icons/fa";
 import Advantage from '../BodyComponent/Advantage';
+import { reviewsData } from '../data/reviewsData';
 
 
 
@@ -89,7 +90,7 @@ if (!product) {
                 </div>
 
                 <div className="col-md-4">
-                    <p className="prod-details-stock"><i className="fa-solid fa-check"></i> in stock</p>
+                    <p className="prod-details-stock"><FaCheck/> in stock</p>
                 </div>
                 
             </div>
@@ -151,23 +152,55 @@ if (!product) {
         
         <div className="tab-pane fade show active" id="specification" role="tabpanel" aria-labelledby="specification-tab">
             <div className="specification-container">
-                {/* <!-- dynamically rendering specs --> */}
+                <p>brand <span>{product.brand}</span></p>
+                <p>model <span>{product.title}</span></p>
+                <p>generic name <span>{product.category}</span></p>
+                <p>headphone type <span>{product.type}</span></p>
+                <p>connectivity <span>{product.connectivity}</span></p>
+                <p>microphone <span>yes</span></p>
             </div>
         </div>
 
         <div className="tab-pane fade" id="overview" role="tabpanel" aria-labelledby="overview-tab">
-            <h5>the <span className="overview-title"></span><span className="overview-para"></span>provides with fabulous sound quality</h5>
+            <h5>the <span className="overview-title">{product.title}</span><span className="overview-para"></span>provides with fabulous sound quality</h5>
             <ul className="overview-list">
                 <li>sound tuned to perfection</li>
                 <li>comfortable to wear</li>
                 <li>long hours playback time</li>
             </ul>
-            <p>Buy the <span className="overview-title"></span>which offers you with fabulous music experience by providing you with awesome sound quality that you can never move on from. Enjoy perfect flexibility and mobility with amazing musical quality with these Headphones giving you a truly awesome audio experience. It blends with exceptional sound quality and a range of smart features for an unrivalled listening experience.</p>
+            <p>Buy the <span className="overview-title">{product.title}</span>which offers you with fabulous music experience by providing you with awesome sound quality that you can never move on from. Enjoy perfect flexibility and mobility with amazing musical quality with these Headphones giving you a truly awesome audio experience. It blends with exceptional sound quality and a range of smart features for an unrivalled listening experience.</p>
         </div>
 
+        
+
         <div className="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-            <div id="review-tab-container"></div>
-            {/* <!-- review render here dynamically -->         */}
+            <div id="review-tab-container">
+
+                {reviewsData.map((review)=>(
+                    <div class="review-tab-details" key={review.id}>
+                    <div class="row review-tab-row align-items-center">
+                    <div class="col-md-1">
+                        <div class="review-user">
+                            <FaUser/>
+                        </div>
+                    </div>
+                    <div class="col-md-11">
+                        <div class="reviewer-details">
+                            <h6>{review.name}</h6>
+                            <p class="reviewer-rating">{getStarRating(review.rateCount)} <span>{review.date}</span></p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="reviewer-msg">
+                        <p>{review.review}</p>
+                    </div>
+                    </div>
+                ))}
+                
+
+
+            </div>
+           
         </div>
         
     </div>
