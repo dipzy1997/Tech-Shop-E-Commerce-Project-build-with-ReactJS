@@ -4,11 +4,15 @@ import "../Style.css"
 import "../Responsive.css"
 import { featureContent } from '../data/featureCarouselData'
 import { FaIndianRupeeSign } from "react-icons/fa6";
+import {Link} from "react-router-dom"
 
 
 
 
 export default function FeatureCarousel() {
+
+const makeSlug = (title)=> title.toLowerCase().replace(/\s+/g, "-")
+
     const featureSlider = {
         centerMode: true,
         centerPadding: '0px',
@@ -55,7 +59,9 @@ export default function FeatureCarousel() {
 
         <Slider className="pcarousel" {...featureSlider}>
             {featureContent.map((f)=>(
-                <div key={f.id}>
+              <Link to={`/products/${makeSlug(f.title)}`}>
+
+              <div key={f.id}>
                     <div class="product-card">
                         <h6>{f.title}</h6>
                         <div class="product-card-img">
@@ -64,6 +70,9 @@ export default function FeatureCarousel() {
                         <p><FaIndianRupeeSign/>{f.discountPrice}<span><FaIndianRupeeSign/>{f.actualPrice}</span></p>
                     </div>
                 </div>
+
+              </Link>
+                
             ))}
 
         </Slider>
