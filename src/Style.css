@@ -1157,12 +1157,6 @@ footer{
 .prod-details-rating{
     margin-top: 15px;
 }
-.prod-details-rating span i{
-    color: var(--red) !important;
-    font-size: 12px;
-    padding-right: 20px;
-    
-}
 .prod-details-rating p{
     color: var(--grey-text);
     text-transform: capitalize;
@@ -1187,6 +1181,7 @@ footer{
     font-size: 22px;
     text-decoration: line-through;
     color: var(--discount-price-text-color);
+    margin-left: 10px;
 }
 .prod-details-save{
     font-size: 14px;

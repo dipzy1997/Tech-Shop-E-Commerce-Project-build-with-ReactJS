@@ -5,7 +5,7 @@ import productsData from '../data/productsData'
 import Card from '../Components/Card';
 import { useNavigate } from 'react-router-dom';
 import { useCartContext } from '../contextApi/CartProvider';
-
+import { Link } from "react-router-dom";
 
 
 
