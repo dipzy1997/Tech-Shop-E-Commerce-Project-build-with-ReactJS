@@ -18,10 +18,8 @@ import CartProvider from './contextApi/CartProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
   <CartProvider>
-    <HashRouter>
-      
-        <App />
-    
-    </HashRouter>
+      <BrowserRouter>
+          <App />
+    </BrowserRouter>
   </CartProvider>
 )
