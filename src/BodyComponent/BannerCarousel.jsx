@@ -11,8 +11,12 @@ import "../Responsive.css";
 
 import { bannerMenu } from "../data/bannerCarouselData";
 import { FaIndianRupeeSign } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 export default function BannerCarousel() {
+
+  const makeSlug = (title) => title.toLowerCase().replace(/\s+/g, "-");
+
   return (
     <div>
       {/* <!-- Banner carousel start --> */}
@@ -53,15 +57,18 @@ export default function BannerCarousel() {
                           </span>
                         </p>
 
-                        <button className="red-btn banner-shop-btn">
-                          shop now
-                        </button>
+                        <Link to={`/products/${makeSlug(b.title)}`}>
+                            <button className="red-btn banner-shop-btn">
+                              shop now
+                           </button>
+                        </Link>
+                        
                       </div>
                     </div>
 
                     <div className="col-md-6 banner-img-col">
                       <div className="banner-img">
-                        <img src={b.image} alt={b.title} />
+                        <img src={b.images[0]} alt={b.title} />
                       </div>
                     </div>
 

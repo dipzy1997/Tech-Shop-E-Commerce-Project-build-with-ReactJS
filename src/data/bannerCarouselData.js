@@ -1,6 +1,19 @@
-import jbl660nc from "../assets/images/products/jbl660nc-1.png";
-import boat131 from "../assets/images/products/boat131-3.png";
-import sonyxb910n from "../assets/images/products/sonyXb910n-1.png"
+import jbl1660nc from "../assets/images/products/jbl660nc-1.png";
+import jbl2660nc from "../assets/images/products/jbl660nc-2.png";
+import jbl3660nc from "../assets/images/products/jbl660nc-3.png";
+import jbl4660nc from "../assets/images/products/jbl660nc-4.png";
+
+
+import boat1131 from "../assets/images/products/boat131-3.png";
+import boat2131 from "../assets/images/products/boat131-2.png";
+import boat3131 from "../assets/images/products/boat131-3.png";
+import boat4131 from "../assets/images/products/boat131-4.png";
+
+
+import sonyxb910n1 from "../assets/images/products/sonyxb910n-1.png";
+import sonyxb910n2 from "../assets/images/products/sonyxb910n-2.png";
+import sonyxb910n3 from "../assets/images/products/sonyxb910n-3.png";
+import sonyxb910n4 from "../assets/images/products/sonyxb910n-4.png";
 
 export const bannerMenu = [
     {
@@ -10,7 +23,7 @@ export const bannerMenu = [
         desc: "keep the noise out, or in. you choose.",
         discountPrice: 9999,
         actualPrice: 14999,
-        image: jbl660nc,
+        images: [jbl1660nc, jbl2660nc, jbl3660nc, jbl4660nc],
 
     },
 
@@ -21,7 +34,7 @@ export const bannerMenu = [
         desc: "featherweight for comfort all-day.",
         discountPrice: 1099,
         actualPrice: 2990,
-        image: boat131,
+        images: [boat1131 ,boat2131, boat3131, boat4131],
 
     },
 
@@ -32,7 +45,7 @@ export const bannerMenu = [
         desc: "give your favourite music a boost.",
         discountPrice: 13489,
         actualPrice: 19990,
-        image: sonyxb910n,
+        images: [sonyxb910n1, sonyxb910n2, sonyxb910n3, sonyxb910n4],
 
     },
 
