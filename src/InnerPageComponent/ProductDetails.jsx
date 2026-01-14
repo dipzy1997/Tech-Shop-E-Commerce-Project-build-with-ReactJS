@@ -19,6 +19,12 @@ const makeSlug = (title) => title.toLowerCase().replace(/\s+/g,"-");
 
 const product = state.products.find(p=> makeSlug(p.title) === title);
 
+const currentProductCategory = product.category;
+const currentProductId = product.id;
+
+
+const relatedProduct = state.products.filter(p=> p.category === currentProductCategory && p.id !== currentProductId)
+
 const cart = state.cart;
 
 const isInCart = (id)=>{
@@ -222,7 +228,35 @@ if (!product) {
         </div>
 
         <div className="row related-prod-row">
-            {/* <!-- related product dynamically rendering here --> */}
+            
+            {relatedProduct.map(p=>(
+
+                <div class="col-lg-3 col-md-4">
+                    <div className="top-product-content-box">
+                        <div className="top-product-img">
+                            <img src={p.images[0]}/>
+                        </div>
+                        <div className="top-product-details">
+                        <div className="rating-star d-flex align-items-center">
+                            {getStarRating(p.rateCount)}
+                        </div>
+                        <div className="top-product-heading">
+                            <h5>{p.title}</h5>
+                            <p>{p.info}</p>
+                        </div>
+                        <div className="top-product-price">
+                            <p><FaIndianRupeeSign/>{p.finalPrice}<span><FaIndianRupeeSign/>{p.originalPrice}</span></p>
+                        </div>
+                        <button className="addcartbtn red-btn" onClick={()=>dispatch({type: "add_to_cart", payload: p})}>add to cart</button>
+                        </div>
+                            
+                    </div>
+                </div>
+
+            ))}
+            
+
+
         </div>
 
 
