@@ -1,5 +1,5 @@
 {
-  "homepage": "https://dipzy1997.github.io/Tech-Shop-E-Commerce-Project-build-with-ReactJS",
+  "homepage": "https://dipzy1997.github.io/Tech-Shop-E-Commerce-Project-build-with-ReactJS/",
   "name": "techshopreactjs",
   "private": true,
   "version": "0.0.0",
@@ -9,8 +9,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy" : "npm run build",
     "deploy": "gh-pages -d dist"
+    
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
