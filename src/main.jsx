@@ -12,15 +12,16 @@ import "slick-carousel/slick/slick-theme.css";
 import 'owl.carousel/dist/assets/owl.carousel.css'
 import 'owl.carousel/dist/assets/owl.theme.default.css'
 import {BrowserRouter} from "react-router-dom"
+import { HashRouter } from "react-router-dom";
 import CartProvider from './contextApi/CartProvider.jsx';
 
 
 createRoot(document.getElementById('root')).render(
   <CartProvider>
-    <BrowserRouter>
+    <HashRouter>
       
         <App />
     
-    </BrowserRouter>
+    </HashRouter>
   </CartProvider>
 )
