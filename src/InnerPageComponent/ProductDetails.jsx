@@ -43,6 +43,11 @@ const getStarRating = (count)=>{
 }
 
 const [activeImg, setActiveImg] = useState(product?.images[0]);
+useEffect(() => {
+  if (product) {
+    setActiveImg(product.images[0]);
+  }
+}, [product]);
 
 
 if (!product) {

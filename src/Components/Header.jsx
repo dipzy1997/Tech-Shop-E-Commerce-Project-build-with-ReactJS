@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "../Style.css"
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { FaMagnifyingGlass, FaXmark} from "react-icons/fa6";
 import { FaShoppingCart} from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
@@ -77,21 +77,31 @@ const handleSearch = ()=>{
 
 const handleSuggestionClick = (title)=>{
   searchRef.current.value = title;
-  setSuggestions([])
+  redirectToProductDetails(title);
 }
 
 const openSearch = ()=>{
   setShowSearch(true);
   setTimeout(() => {
     searchRef.current?.focus();
-  }, 100);
+  }, 500);
 }
 
 const closeSearch = ()=>{
   setShowSearch(false)
 }
 
+// after searching go to product details page
+const navigate = useNavigate();
 
+const makeSlug = (title) => title.toLowerCase().replace(/\s+/g, "-");
+
+const redirectToProductDetails = (title) => {
+  const slug = makeSlug(title);
+  setSuggestions([]);
+  setShowSearch(false);
+  navigate(`/products/${slug}`);
+};
 
 
   return (
@@ -118,7 +128,12 @@ const closeSearch = ()=>{
               <p className="seatch-text" onClick={openSearch}>search</p>
 
                 <div className={`search-container ${showSearch? "active" : ""}`}>
-                    <input type="text" placeholder="Search for products..." id="navSearch" autocomplete="off" ref={searchRef} onKeyUp={handleSearch}/>
+                    <input type="text" placeholder="Search for products..." id="navSearch" autocomplete="off" ref={searchRef} onKeyUp={handleSearch} 
+                    onKeyDown={(e)=>{
+                      if(e.key === "Enter"){
+                        redirectToProductDetails(searchRef.current.value)
+                      }
+                    }}/>
                     <span className="clear-search-btn" onClick={closeSearch}><FaXmark /></span>
                     <ul className={`suggestions ${suggestions.length ? "active":""}`}>
                         {suggestions.map((item)=>(
