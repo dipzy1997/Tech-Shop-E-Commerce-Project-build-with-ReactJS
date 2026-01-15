@@ -108,14 +108,14 @@ const closeSearch = ()=>{
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav ms-auto d-flex align-items-center">
+      <ul className="navbar-nav ms-auto d-flex align-items-lg-center">
         
         <li className="nav-item search-box">
           
             <div className={`search-overlay ${showSearch? "active": ""}`} onClick={closeSearch}></div> 
 
               <Link onClick={openSearch}><FaMagnifyingGlass/></Link>
-              <p className="seatch-text">search</p>
+              <p className="seatch-text" onClick={openSearch}>search</p>
 
                 <div className={`search-container ${showSearch? "active" : ""}`}>
                     <input type="text" placeholder="Search for products..." id="navSearch" autocomplete="off" ref={searchRef} onKeyUp={handleSearch}/>
@@ -131,12 +131,13 @@ const closeSearch = ()=>{
         </li>
 
         <li className="nav-item cart-icon">
-          <p className="cart-text">Cart</p>
+          <p className="cart-text"><Link to="/cart">Cart</Link></p>
           <Link className="nav-link" to="/cart"><FaShoppingCart/></Link>
           {cart.length !== 0 && <span>{cart.length}</span>}
         </li>
 
         <li className="nav-item user-icon" onClick={()=> setShowUserPrimaryBox(prev => !prev)}>
+          <p className="user-text" onClick={()=> setShowUserPrimaryBox(prev => !prev)}>User</p>
           <Link className="nav-link" to="#"><FiUser/></Link>
 
           <div className={`user-primary-box ${showUserPrimaryBox ? "active" : ""}`}>

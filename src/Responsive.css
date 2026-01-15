@@ -182,6 +182,24 @@ footer .row .col-md-3{
 .f-col3 ul, .f-col4 ul {
     margin-left: 0;
 }
+.cart-text , .seatch-text, .user-text{
+    display: block;
+    opacity: 1;
+    border: none;
+    top: 5px;
+    left: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    
+}
+.cart-text a{
+    font-size: 15px !important;
+}
+.cart-text, .user-text {
+    top:15px
+}
+
+
 
 
 }
@@ -211,7 +229,117 @@ footer .row .col-md-3{
     padding: 5px 10px;
     font-size: 14px !important;
 }
+.advantage-sec .row .col-md-4 {
+    width: 25%;
+}
+.a-img {
+    font-size: 30px !important;
+}
+.copyright .row .col-md-6{
+    width: 50% !important;
+}
+.copyright {
+    padding: 10px 0;
+}
+.subscribe .red-btn {
+    padding: 11px 15px;
+    margin-left: 20px;
+}
+footer {
+    padding: 40px 0 20px;
+}
+#topProductsRow .col-md-4{
+    width: 50% !important;
+}
 
+}
+
+@media screen and (max-width:630px){
+    .search-container input, .search-container .suggestions{
+        position: relative;
+        left: 100px;
+    }
+    .search-container .clear-search-btn{
+        right: -80px;
+    }
+    .advantage-sec .row .col-md-4 {
+    width: 50%;
+}
+
+}
+@media screen and (max-width:520px){
+    .search-container input,  .search-container .suggestions{
+        position: relative;
+        left: 150px;
+    }
+   
+     .search-container .clear-search-btn{
+        right: -120px;
+    }
+    #topProductsRow .col-md-4{
+    width: 100% !important;
+    }
+    .browse-box {
+        height: 200px;
+    }
+    .copyright-text p {
+   
+    font-size: 15px;
+   
+}
+}
+@media screen and (min-width:320px) and (max-width:519px){
+    .advantage-sec .row .col-md-4 {
+    width: 100%;
+}
+    .subscribe .red-btn{
+        margin-left: 0;
+    }
+    .copyright .row .col-md-6{
+    width: 100% !important;
+}
+.search-container input, .search-container .suggestions {
+    position: relative;
+    left: 80%;
+    transform: translateX(9px);
+}
+.search-container .clear-search-btn {
+    right: -150px;
+}
+.search-container .suggestions {
+    width: 240px;
+}
+.user-primary-box {
+    left: -100px;
+}
+.login-box, .signup-box {
+   
+    width: 280px;
+    padding: 20px;
+}
+.log-dash p {
+    text-align: center;
+    margin-top: 20px;
+}
+.login-social-btn {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    align-items: center;
+    justify-content: space-around;
+}
+.login-fb, .login-g{
+    margin-bottom: 30px;
+}
+button.navbar-toggler, .navbar-collapse {
+    right: 20px !important;
+}
+.category-btns{
+    flex-direction: column;
+}
+.category-btns button{
+    margin-bottom: 10px;
+}
 
 }
 

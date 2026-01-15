@@ -63,19 +63,17 @@ img{
     justify-content: center;
     align-items: center;
     padding: 10px;
-    opacity: 0;
+    opacity: 1;
     transition: 0.3s ease-in-out;
+    border: none;
 }
-#backToTop i{
+#backToTop svg{
     color: #fff;
     font-size: 22px;
     font-weight: 600;
 }
 #backToTop:hover{
     background-color: rgb(252, 47, 47);
-}
-#backToTop.active{
-    opacity: 1;
 }
 
 /* back to top button end */
@@ -141,7 +139,7 @@ img{
     align-items: center;
     
 }
-.cart-text , .seatch-text{
+.cart-text , .seatch-text, .user-text{
     position: absolute;
     top: 50px;
     left: 0;
