@@ -125,7 +125,7 @@ const redirectToProductDetails = (title) => {
             <div className={`search-overlay ${showSearch? "active": ""}`} onClick={closeSearch}></div> 
 
               <Link onClick={openSearch}><FaMagnifyingGlass/></Link>
-              <p className="seatch-text" onClick={openSearch}>search</p>
+              <p className="search-text" onClick={openSearch}>search</p>
 
                 <div className={`search-container ${showSearch? "active" : ""}`}>
                     <input type="text" placeholder="Search for products..." id="navSearch" autocomplete="off" ref={searchRef} onKeyUp={handleSearch} 

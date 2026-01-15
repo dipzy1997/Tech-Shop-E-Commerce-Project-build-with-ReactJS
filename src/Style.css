@@ -139,7 +139,7 @@ img{
     align-items: center;
     
 }
-.cart-text , .seatch-text, .user-text{
+.cart-text , .search-text, .user-text{
     position: absolute;
     top: 50px;
     left: 0;
@@ -153,6 +153,9 @@ img{
     opacity: 0;
     transition: 0.3s ease-in-out;
     font-family: var(--roboto-font);
+}
+.cart-text a{
+    font-size: 14px !important; 
 }
 .cart-icon:hover .cart-text{
     display: block;

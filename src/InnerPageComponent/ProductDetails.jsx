@@ -19,6 +19,14 @@ const makeSlug = (title) => title.toLowerCase().replace(/\s+/g,"-");
 
 const product = state.products.find(p=> makeSlug(p.title) === title);
 
+if (!product) {
+    return (
+    <h2 className="text-center container my-5 text-white">
+      Product not found
+    </h2>
+  );
+  }
+
 const currentProductCategory = product.category;
 const currentProductId = product.id;
 
@@ -50,9 +58,7 @@ useEffect(() => {
 }, [product]);
 
 
-if (!product) {
-    return <h2 className="text-center container my-5 text-white">Product not found</h2>;
-  }
+
 
   return (
     <div>
