@@ -78,7 +78,7 @@ useEffect(() => {
                         ))}
                     </div>
                 </div>
-                <div className="col-lg-10">
+                <div className="col-md-10">
                     <div className="hero-img">
                         <img id="main-img" src={activeImg} alt={product.title}/>
                     </div>
